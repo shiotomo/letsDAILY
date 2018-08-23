@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <% if user_signed_in? %>
+          <%= link_to 'サインアウト', signout_path %>
+        <% end %>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

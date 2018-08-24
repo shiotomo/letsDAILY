@@ -12,6 +12,7 @@
   <body>
     <header>
       <nav>
+        <%= link_to 'ダッシュボード', dashboards_path %>
         <% if user_signed_in? %>
           <%= link_to 'サインアウト', signout_path %>
         <% end %>

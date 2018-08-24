@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'welcomes#index'
 
   resources :dashboards, only: :index
+  resources :memos
 
   # ログイン認証
   get '/auth/:provider/callback' => 'sessions#create'

@@ -1,0 +1,8 @@
+<h1>Memos#index</h1>
+<p>Find me in app/views/memos/index.html.erb</p>
+<%= link_to 'memos/new', new_memo_path %>
+<ul>
+<% @memos.each do |memo| %>
+  <li><%= link_to memo.title, memo_path(memo) %></li>
+<% end %>
+</ul>

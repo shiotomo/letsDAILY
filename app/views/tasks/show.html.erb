@@ -1,0 +1,12 @@
+<h1>Tasks#show</h1>
+<p>Find me in app/views/tasks/show.html.erb</p>
+
+<%= @task.title %>
+<%= simple_format @task.body %>
+
+<%= link_to 'アップデート', edit_task_path(@task) %>
+<%= link_to '削除',
+  task_path(@task),
+  method: :delete,
+  data: {confirm: '本当に削除していいですか？'}
+%>

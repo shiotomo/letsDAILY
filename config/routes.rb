@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: :index
   resources :memos
-  resources :tasks
+  resources :tasks do
+    resources :progressions, only: [:edit, :create, :update, :destroy]
+  end
 
   # ログイン認証
   get '/auth/:provider/callback' => 'sessions#create'

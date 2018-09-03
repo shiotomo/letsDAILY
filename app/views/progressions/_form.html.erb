@@ -1,0 +1,6 @@
+<%= @task.title %>
+<%= simple_format @task.body %>
+<%= form_for ([@task, @progression]) do |f| %>
+  <%= f.text_area :comment %>
+  <%= f.submit %>
+<% end %>

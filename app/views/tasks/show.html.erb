@@ -1,12 +1,31 @@
 <h1>Tasks#show</h1>
 <p>Find me in app/views/tasks/show.html.erb</p>
 
-<%= @task.title %>
-<%= simple_format @task.body %>
-
 <%= link_to 'アップデート', edit_task_path(@task) %>
 <%= link_to '削除',
   task_path(@task),
   method: :delete,
   data: {confirm: '本当に削除していいですか？'}
 %>
+
+<div>
+  <%= @task.title %>
+  <%= simple_format @task.body %>
+  <h3>コメント</h3>
+  <% @task.progressions.each do |progression| %>
+    <%= simple_format progression.comment %>
+    <%= link_to '編集', edit_task_progression_path(@task, progression) %>
+    <%= link_to '削除', 
+      task_progression_path(@task, progression),
+      method: :delete,
+      data: {confirm: '本当に削除していいですか?'}
+    %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_for ([@task, @task.progressions.new]) do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit %>
+  <% end %>
+</div>

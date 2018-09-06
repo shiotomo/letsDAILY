@@ -16,9 +16,9 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'jquery-rails'
-gem 'jquery-rails'
 gem 'pry-rails'
 gem 'dotenv-rails'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

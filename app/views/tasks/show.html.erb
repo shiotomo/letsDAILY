@@ -1,18 +1,19 @@
 <div class="card">
   <div class="card-content">
-    <span class="card-title"><%= @task.title %></span>
+    <span class="card-title">
+      <%= @task.title %>
+    </span>
     <p>
       <%= simple_format @task.body %>
     </p>
     <div class="card-action">
-      <%= link_to 'update', edit_task_path(@task), class: "btn orange" %>
+      <%= link_to 'UPDATE', edit_task_path(@task) %>
       <%= link_to 'DELETE',
         task_path(@task),
         method: :delete,
-        class: "btn pink",
         data: {confirm: 'Are you sure?'}
       %>
-  </div>
+    </div>
   </div>
 </div>
 <div class="row">

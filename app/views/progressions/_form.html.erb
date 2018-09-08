@@ -1,6 +1,12 @@
-<%= @task.title %>
-<%= simple_format @task.body %>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">
+      <%= @task.title %>
+    </span>
+    <%= simple_format @task.body %>
+  </div>
+</div>
 <%= form_for ([@task, @progression]) do |f| %>
-  <%= f.text_area :comment %>
-  <%= f.submit %>
+  <%= f.text_area :comment, class: "materialize-textarea" %>
+  <%= f.submit "SUBMIT",  class: "btn blue" %>
 <% end %>

@@ -1,5 +1,5 @@
 <h1>Memo List</h1>
-<%= link_to 'memos/new', new_memo_path %>
+<%= link_to 'Create memo', new_memo_path, class: "btn blue" %>
 
 <% @memos.each do |memo| %>
   <div class="card">

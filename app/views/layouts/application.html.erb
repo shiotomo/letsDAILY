@@ -12,12 +12,37 @@
   <body>
     <header>
       <nav>
-        <% if user_signed_in? %>
-          <%= link_to 'ダッシュボード', dashboards_path %>
-          <%= link_to 'サインアウト', signout_path %>
-        <% end %>
+        <div class="nav-content">
+          <% if user_signed_in? %>
+            <%= link_to 'LetsDaily', dashboards_path, class: "bland-logo" %>
+            <div class="right">
+              <a href="#" data-activates="mobile-demo" class="button-collapse"><%= mi.menu %></a>
+            </div>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><%= link_to 'Memo List', memos_path %></li>
+              <li><%= link_to 'Progress List', tasks_path %></li>
+              <li><%= link_to 'Sign Out', signout_path %></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li><%= link_to 'Memo List', memos_path %></li>
+              <li><%= link_to 'Progress List', tasks_path %></li>
+              <li><%= link_to 'Sign Out', signout_path %></li>
+            </ul>
+          <% else %>
+            <%= link_to 'LetsDaily', root_path, class: "brand-logo" %>
+          <% end %>
+        </div>
       </nav>
     </header>
+
     <%= yield %>
+
+    <script>
+      (function ($) {
+        $(function () {
+          $('.button-collapse').sideNav();
+        });
+      })(jQuery);
+    </script>
   </body>
 </html>

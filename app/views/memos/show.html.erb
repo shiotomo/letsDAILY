@@ -1,12 +1,18 @@
-<h1>Memos#show</h1>
-<p>Find me in app/views/memos/show.html.erb</p>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">
+      <%= @memo.title %>
+    </span>
+    <%= simple_format @memo.body %>
 
-<%= @memo.title %>
-<%= simple_format @memo.body %>
-
-<%= link_to 'アップデート', edit_memo_path(@memo) %>
-<%= link_to '削除',
-  memo_path(@memo),
-  method: :delete,
-  data: {confirm: '本当に削除していいですか？'}
-%>
+    <div class="card-action">
+      <%= link_to 'LIST', memos_path %>
+      <%= link_to 'UPDATE', edit_memo_path(@memo) %>
+      <%= link_to 'DELETE',
+        memo_path(@memo),
+        method: :delete,
+        data: {confirm: '本当に削除していいですか？'}
+      %>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,7 @@
+<script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+
 <div class="card cyan lighten-5">
   <div class="card-content">
     <span class="card-title">
@@ -29,6 +33,9 @@
       <div class="card-content">
         <span class="card-title">Information</span>
         <h5>Number of progress: <%= @task.progressions.count %></h5>
+        <hr />
+        <h5>Progress graph</h5>
+        <div id="cal-heatmap"></div>
       </div>
       <div class="card-action">
         <%= link_to "Task List", tasks_path %>
@@ -73,3 +80,15 @@
     <% end %>
   </div>
 </div>
+
+<%= stylesheet_link_tag 'heatmap.css' %>
+<script>
+const id = <%= params[:id] %>;
+console.log(id);
+let cal = new CalHeatMap();
+cal.init({
+  domain: 'month',
+  data: "/api/v1/heatmap/show/" + id,
+  subdomain: 'day'
+});
+</script>

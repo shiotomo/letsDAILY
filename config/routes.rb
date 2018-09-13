@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   # API
   namespace :api do
     namespace :v1 do
-      get '/heatmap/graph', to: 'heatmap#graph'
+      get '/heatmap/index', to: 'heatmap#index'
+      get '/heatmap/show/:id', to: 'heatmap#show'
     end
   end
 

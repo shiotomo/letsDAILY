@@ -9,6 +9,17 @@
 <div class="card">
   <div class="card-content">
     <span class="card-title">
+      <h5>Profile</h5>
+    </span>
+    <%= image_tag current_user.image_url, size: "64x64" %>
+    <ul>
+      <li><%= current_user.user_name %></li>
+    </ul>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">
       <h5>Progress graph</h5>
     </span>
     <div id="cal-heatmap"></div>

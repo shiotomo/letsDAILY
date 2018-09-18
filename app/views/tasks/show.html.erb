@@ -5,10 +5,10 @@
 <div class="card cyan lighten-5">
   <div class="card-content">
     <span class="card-title">
-      <%= @task.title %>
+      <h1><%= @task.title %></h1>
     </span>
     <p>
-      <%= simple_format @task.body %>
+      <%= markdown(@task.body) %>
     </p>
     <div class="card-action">
       <%= link_to 'UPDATE', edit_task_path(@task) %>
@@ -62,7 +62,7 @@
         <% if !progression.id.nil? %>
           <div class="card">
             <div class="card-content">
-              <%= simple_format progression.comment %>
+              <%= markdown(progression.comment) %>
               <div class="card-action">
                 <%= link_to "UPDATE",
                   edit_task_progression_path(@task, progression)

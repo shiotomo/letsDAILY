@@ -3,7 +3,7 @@
     <span class="card-title">
       <%= @memo.title %>
     </span>
-    <%= simple_format @memo.body %>
+    <%= markdown(@memo.body) %>
 
     <div class="card-action">
       <%= link_to 'LIST', memos_path %>
